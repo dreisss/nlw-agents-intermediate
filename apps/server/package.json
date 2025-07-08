@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.50",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "elysia": "latest"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
+}
