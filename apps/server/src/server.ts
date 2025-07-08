@@ -1,6 +1,7 @@
 import cors from '@elysiajs/cors';
 import { env } from '@repo/env';
 import { Elysia } from 'elysia';
+import { getRooms } from '@/http/routes/get-rooms';
 
 const corsPlugin = cors({
   origin: 'http://localhost:3001',
@@ -9,6 +10,7 @@ const corsPlugin = cors({
 const app = new Elysia()
   .use(corsPlugin)
   .get('/health', () => 'OK')
+  .group('/rooms', (rooms) => rooms.use(getRooms))
   .listen(env.SERVER_PORT);
 
 console.info(
