@@ -1,4 +1,5 @@
 import cors from '@elysiajs/cors';
+import { env } from '@repo/env';
 import { Elysia } from 'elysia';
 
 const corsPlugin = cors({
@@ -7,8 +8,8 @@ const corsPlugin = cors({
 
 const app = new Elysia()
   .use(corsPlugin)
-  .get('/', () => 'Hello Elysia')
-  .listen(3000);
+  .get('/health', () => 'OK')
+  .listen(env.SERVER_PORT);
 
 console.info(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
